@@ -1,0 +1,63 @@
+#include<cstdio>
+#include<iomanip>
+#include<sstream>
+#include<cstdlib>
+#include<cctype>
+#include<cmath>
+#include<algorithm>
+#include<set>
+#include<queue>
+#include<deque>
+#include<stack>
+#include<list>
+#include<bitset>
+#include<utility>
+#include<iostream>
+#include<fstream>
+#include<numeric>
+#include<string>
+#include<vector>
+#include<cstring>
+#include<map>
+#include<iterator>
+#include<functional>
+using namespace std;
+
+#define ll long long int
+#define du double
+#define read freopen("input.txt","r",stdin)
+#define write freopen("output.txt","w",stdout)
+#define fi(j,k,n) for(j=k;j<n;j++)
+#define fd(j,k,n) for(j=k;j<n;j--)
+#define vc(a) vector<a>
+#define pb push_back
+#define mset(a) memset(a,0,sizeof(a))
+#define pr(a,s) pair<a,s>
+#define st(a) sort(a.begin(),a.end())
+#define mp(a,b) make_pair(a,b)
+
+int main()
+{
+    ll n,m;
+    set<int>si,sj;
+    cin>>n>>m;
+    string s;
+    for(ll i=1;i<=n;i++)
+    {
+        cin>>s;
+        for(ll j=0;j<m;j++)
+        {
+            if(s[j]=='S')
+            {
+                si.insert(i);
+                sj.insert(j);
+            }
+        }
+    }
+    ll sum=0,a,b;
+    a=n-si.size();
+    sum+=a*m;
+    b=m-sj.size();
+    sum+=b*n-a*b;
+    cout<<sum;
+}
